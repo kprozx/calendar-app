@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イベントカレンダー</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>イベントカレンダー</h2>
+  <input type="text" id="searchBox" placeholder="🔍 イベント検索" style="width:200px; margin-bottom:10px;">
+  <div id="calendar"></div>
+
+  <!-- 詳細モーダル -->
+  <div id="modal">
+    <div id="modalContent">
+      <span class="closeBtn" id="closeModal">✖</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- 追加モーダル -->
+  <div id="addModal">
+    <div id="addModalContent">
+      <span class="closeBtn" id="closeAddModal">✖</span>
+      <h3>🆕 イベント追加</h3>
+      <input type="text" id="newTitle" placeholder="タイトル" style="width:100%; margin-bottom:8px;"><br>
+      <input type="text" id="newLocation" placeholder="場所" style="width:100%; margin-bottom:8px;"><br>
+      <button id="addEventBtn">追加</button>
+    </div>
+  </div>
+
+  <!-- FullCalendarのJS（ライブラリ） -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- 自作のメインスクリプトを外部ファイルに -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
