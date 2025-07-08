@@ -1,10 +1,12 @@
 # イベントカレンダーアプリ
 
-## 🚀概要
-このアプリは**イベント管理ができるカレンダーアプリ**です。
+![Made with JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-yellow)
+
+## 🚀 概要
+このアプリは **イベント管理ができるカレンダーアプリ** です。  
 FullCalendarを使い、直感的にイベント操作が可能です。
 
-##🎥デモ
+## 🎥 デモ
 ![calendar demo](./demo.gif)
 
 ## 🔧 セットアップ方法
@@ -25,10 +27,8 @@ VSCodeを使っている場合、拡張機能「Live Server」を使用すると
 
 ※ `file://` で読み込むと、ブラウザのセキュリティ制約で動かない処理がある場合に備えて、Live Serverを使うのがおすすめです。
 
-
 ---
 
-```markdown
 ## ✨ 主な機能
 
 - 📅 カレンダーでのイベント表示
@@ -36,12 +36,33 @@ VSCodeを使っている場合、拡張機能「Live Server」を使用すると
 - 🔍 イベント検索機能
 - 🎌 日本の祝日自動表示
 - 💾 ローカルストレージ保存対応
-```
 
-![Made with JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-yellow)
+---
 
 ## 🛠 技術スタック
 
 | フロントエンド | データ管理   | UIライブラリ     |
 |----------------|--------------|------------------|
 | HTML/CSS       | LocalStorage | FullCalendar.js |
+
+---
+
+## 🛣 今後の展望
+
+- GitHub Pagesでの公開を想定した構成変更
+- Firebaseなどのバックエンドとの連携
+- UI/UX改善、レスポンシブ対応
+- セキュリティ面や設計の見直し
+
+---
+
+## 🙋‍♂️ 作者について
+
+このアプリは学習と実践を兼ねて作成しました。  
+今後も改良を重ねながら、さまざまな技術に挑戦していきます！
+
+---
+
+## 📄 ライセンス
+
+MIT License
