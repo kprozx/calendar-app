@@ -7,7 +7,7 @@
 FullCalendarを使い、直感的にイベント操作が可能です。
 
 ## 🎥 デモ
-![calendar demo](./demo.gif)
+![calendar demo](./assets/demo.gif)
 
 ## 🔧 セットアップ方法
 
