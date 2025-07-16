@@ -13,7 +13,10 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser, // 既存のブラウザグローバル
-        FullCalendar: "readonly", // ← ここを追加！！
+        FullCalendar: "readonly",
+        modal: "readonly",
+        gapi: "readonly",
+        google: "readonly",
       },
     },
   },

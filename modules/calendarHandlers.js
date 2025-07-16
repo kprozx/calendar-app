@@ -1,5 +1,6 @@
 import { showModal, showAddModal } from "./modal.js";
 import { saveEvents } from "./storage.js";
+import { sendEventToForm } from "./sendEventToGAS.js";
 
 export function handleEventClick(info, calendar) {
   info.jsEvent.preventDefault();
@@ -13,7 +14,11 @@ export function handleEventClick(info, calendar) {
     `;
 
   showModal(contentHTML);
-
+  sendEventToForm(
+    info.event.title,
+    info.event.startStr.split("T")[0],
+    info.event.extendedProps.location || "場所未設定",
+  );
   document.getElementById("deleteBtn").onclick = () => {
     info.event.remove();
     saveEvents(calendar);

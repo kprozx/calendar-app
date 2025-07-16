@@ -15,6 +15,8 @@
       style="width: 200px; margin-bottom: 10px"
     />
     <div id="calendar"></div>
+    <button id="bulkSendBtn">📤 全イベント送信</button>
+    <button id="loginButton">Googleカレンダーと連携</button>
 
     <!-- 詳細モーダル -->
     <div id="modal">
@@ -47,6 +49,10 @@
 
     <!-- FullCalendarのJS（ライブラリ） -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+    <!-- Google API クライアントライブラリ -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <!-- 自作のメインスクリプトを外部ファイルに -->
     <script type="module" src="./main.js"></script>
