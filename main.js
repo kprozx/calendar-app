@@ -4,18 +4,25 @@ import {
   handleDateClick,
   showTooltip,
   hideTooltip,
+  handleDateRangeSelect,
 } from "./modules/calendarHandlers.js";
 import { loadHolidays } from "./modules/loadHolidays.js";
 import { setupSearch } from "./modules/setupSearch.js";
 import { sendAllEventsToForm } from "./modules/sendEventToGAS.js";
-import { initGoogleCalendarAPI, startGoogleLoginFlow } from "./modules/googleApi.js";
+import {
+  initGoogleCalendarAPI,
+  startGoogleLoginFlow,
+  addGoogleCalendarEvent,
+} from "./modules/googleApi.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const calendarEl = document.getElementById("calendar");
   const savedEvents = loadEvents();
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
+    initialView: "timeGridWeek", // ← 時間付きのビュー（重要）
+    selectable: true, // ← 範囲選択を有効化
+    select: handleDateRangeSelect, // ← この関数でモーダル開く
     locale: "ja",
     headerToolbar: {
       left: "prev,next today",
@@ -85,6 +92,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("loginButton").addEventListener("click", () => {
       startGoogleLoginFlow(loadAndShowCalendarEvents);
+    });
+
+    document.getElementById("addEventBtn").addEventListener("click", async () => {
+      const newEvent = {
+        summary: "ChatGPTとGoogle Calendar連携🎉",
+        description: "これはAPI経由で作成したイベントです。",
+        start: {
+          dateTime: "2025-07-18T10:00:00+09:00",
+          timeZone: "Asia/Tokyo",
+        },
+        end: {
+          dateTime: "2025-07-18T11:00:00+09:00",
+          timeZone: "Asia/Tokyo",
+        },
+      };
+      try {
+        const result = await addGoogleCalendarEvent(newEvent);
+        calendar.addEvent({
+          id: result.id,
+          title: result.summary,
+          start: result.start.dateTime || result.start.date,
+          end: result.end?.dateTime || result.end?.date,
+          extendedProps: {
+            description: result.description || "",
+            location: result.location || "",
+          },
+        });
+
+        alert("Googleカレンダー＆カレンダーUIに追加完了！");
+      } catch (err) {
+        console.error("追加失敗:", err);
+        alert("イベント追加に失敗しました");
+      }
     });
   });
 

@@ -17,6 +17,7 @@
     <div id="calendar"></div>
     <button id="bulkSendBtn">📤 全イベント送信</button>
     <button id="loginButton">Googleカレンダーと連携</button>
+    <button id="addEventBtn">Googleカレンダーにイベントを追加</button>
 
     <!-- 詳細モーダル -->
     <div id="modal">
@@ -43,6 +44,8 @@
           placeholder="場所"
           style="width: 100%; margin-bottom: 8px"
         /><br />
+        <label>開始日時：<input type="datetime-local" id="modalStart" required /></label><br />
+        <label>終了日時：<input type="datetime-local" id="modalEnd" required /></label><br />
         <button id="addEventBtn">追加</button>
       </div>
     </div>

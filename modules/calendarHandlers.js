@@ -65,3 +65,14 @@ export function hideTooltip() {
   const tooltip = document.getElementById("custom-tooltip");
   if (tooltip) tooltip.remove();
 }
+
+export function handleDateRangeSelect(info) {
+  // ISO形式で日時をモーダルにセット
+  document.getElementById("modalStart").value = info.start.toISOString().slice(0, 16);
+  document.getElementById("modalEnd").value = info.end.toISOString().slice(0, 16);
+  document.getElementById("modalTitle").value = "";
+  document.getElementById("modalLocation").value = "";
+
+  // モーダル表示
+  document.getElementById("eventModal").style.display = "block";
+}

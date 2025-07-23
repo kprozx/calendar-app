@@ -38,3 +38,18 @@ export function startGoogleLoginFlow(callback) {
   accessTokenCallback = callback;
   tokenClient.requestAccessToken();
 }
+
+export async function addGoogleCalendarEvent(eventData) {
+  try {
+    const response = await gapi.client.calendar.events.insert({
+      calendarId: 'primary',
+      resource: eventData,
+    });
+
+    console.log('✅ イベント追加成功！', response.result);
+    return response.result;
+  } catch (error) {
+    console.error('❌ イベント追加失敗:', error);
+    throw error;
+  }
+}
